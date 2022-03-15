@@ -1,4 +1,4 @@
-# IOSXE
+# IOS XE
 IOS XE Templates
 
 This repo will contain several templates for IOS XE. 
