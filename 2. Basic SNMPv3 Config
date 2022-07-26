@@ -38,4 +38,5 @@ snmp-server user nagios snmp-v3-ReadOnly v3 auth sha SHAAUTHPASSWORD priv aes 12
 snmp-server user network-configer snmp-v3-ReadWrite v3 auth sha SHAAUTHPASSWORD priv aes 128 AESENCRYPTIONPASSWORD access snmp-service
 !
 !
+end
 !
