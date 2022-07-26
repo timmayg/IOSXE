@@ -1,0 +1,41 @@
+!
+! 
+config terminal
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!   Create new SNMP Access List
+!   Make sure your SNMP Pollers IP Addresses
+!     are listed in this ACL
+no ip access-list standard snmp-service 
+ip access-list standard snmp-service
+  permit 192.168.0.0 0.0.255.255
+!    
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!   Create new Read Only SNMPv3 View & SNMPv3 Group
+!    
+snmp-server view snmp-v3-ReadOnly-View iso included 
+snmp-server group snmp-v3-ReadOnly v3 priv read snmp-v3-ReadOnly-View access snmp-service
+!
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!   Create new Read Write SNMPv3 View & SNMPv3 Group
+!
+snmp-server view snmp-v3-ReadWrite-View iso included 
+snmp-server group snmp-v3-ReadWrite v3 priv write snmp-v3-ReadWrite-View access snmp-service
+!
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!   Create new SNMPv3 Read Only Users
+!
+snmp-server user cacti01 snmp-v3-ReadOnly v3 auth sha SHAAUTHPASSWORD priv aes 128 AESENCRYPTIONPASSWORD access snmp-service
+snmp-server user nagios snmp-v3-ReadOnly v3 auth sha SHAAUTHPASSWORD priv aes 128 AESENCRYPTIONPASSWORD access snmp-service
+!
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!   Create new SNMPv3 Read Write Users
+!
+snmp-server user network-configer snmp-v3-ReadWrite v3 auth sha SHAAUTHPASSWORD priv aes 128 AESENCRYPTIONPASSWORD access snmp-service
+!
+!
+!
