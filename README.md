@@ -1,4 +1,4 @@
-# IOS XE (retired as of March 2023
+# IOS XE (retired as of March 2023)
 
 Please see here instead. 
 https://github.com/timmayg/cisco-configs
