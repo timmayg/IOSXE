@@ -1,4 +1,8 @@
-# IOS XE
+# IOS XE (retired as of March 2023
+
+Please see here instead. 
+https://github.com/timmayg/cisco-configs
+
 IOS XE Templates
 
 This repo will contain several templates for IOS XE. 
